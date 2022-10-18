@@ -1,6 +1,7 @@
 
 
 import UIKit
+import FirebaseAuth
 
 class RegisterViewController: UIViewController {
 
@@ -13,7 +14,7 @@ class RegisterViewController: UIViewController {
     //Logo değişikliği buradan yapılacak
     private let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "person")
+        imageView.image = UIImage(systemName: "person.circle")
         imageView.tintColor = .gray
         imageView.contentMode = .scaleAspectFit
         imageView.layer.masksToBounds = true
@@ -185,11 +186,41 @@ class RegisterViewController: UIViewController {
             return
         }
         
+        DatabaseManager.shared.userExists(with: email, completion: {[weak self] exist in
+            guard let strongSelf = self else{
+                return
+            }
+            
+            guard !exist else{
+                // user already exists
+                strongSelf.alertUserLoginError(message: "Bu e-posta adresleri için zaten bir kullanıcı hesabı var gibi görünüyor.")
+                return
+            }
+            FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password,completion: { authResult, error in
+               
+                guard  authResult != nil, error == nil else {
+                    print("Kullanıcı belirlenirken hata oluştu")
+                    return
+                }
+                DatabaseManager.shared.insertUser(with: ChatAppUser(firstName: firstname,
+                                                                    lastName: lastname,
+                                                                    emailAddress: email))
+
+                strongSelf.navigationController?.dismiss(animated: true,completion: nil)
+            })
+            
+        })
+        
+        
+        
     }
     // firebase log in
-    func alertUserLoginError(){
+    
+    
+    
+    func alertUserLoginError(message: String = "Yeni bir hesap oluşturmak için lütfen tüm bilgileri girin."){
         let alert = UIAlertController(title: "Woops",
-                                      message: "Please enter all information to create a new account.",
+                                      message: message,
                                       preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel))
         present(alert,animated: true)
@@ -197,7 +228,7 @@ class RegisterViewController: UIViewController {
     
     @objc private func didTapRegister(){
         let vc = RegisterViewController()
-        vc.title = "Creat Account"
+        vc.title = "Hesap oluştur"
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -224,7 +255,7 @@ extension RegisterViewController: UIImagePickerControllerDelegate,UINavigationCo
         let actionSheet = UIAlertController(title: "Profil fotografı",
                                             message: "Hangi resmi seçmek istersin",
                                             preferredStyle: .actionSheet)
-        actionSheet.addAction(UIAlertAction(title: "Cancel",
+        actionSheet.addAction(UIAlertAction(title: "İptal",
                                             style: .cancel,
                                            handler: nil))
         actionSheet.addAction(UIAlertAction(title: "Fotoğraf Çek",
