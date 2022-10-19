@@ -2,6 +2,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 class RegisterViewController: UIViewController {
 
@@ -185,23 +186,24 @@ class RegisterViewController: UIViewController {
             alertUserLoginError()
             return
         }
-        
-        DatabaseManager.shared.userExists(with: email, completion: {[weak self] exist in
+        // firebase log in
+        DatabaseManager.shared.userExists(with: email, completion: {[weak self] exists in
             guard let strongSelf = self else{
                 return
             }
             
-            guard !exist else{
+            guard !exists else{
                 // user already exists
                 strongSelf.alertUserLoginError(message: "Bu e-posta adresleri için zaten bir kullanıcı hesabı var gibi görünüyor.")
                 return
             }
             FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password,completion: { authResult, error in
-               
                 guard  authResult != nil, error == nil else {
-                    print("Kullanıcı belirlenirken hata oluştu")
+                    print("Kullanıcı oluştururken hata oluştu")
                     return
                 }
+                
+                
                 DatabaseManager.shared.insertUser(with: ChatAppUser(firstName: firstname,
                                                                     lastName: lastname,
                                                                     emailAddress: email))
@@ -214,7 +216,7 @@ class RegisterViewController: UIViewController {
         
         
     }
-    // firebase log in
+    
     
     
     
