@@ -197,20 +197,19 @@ class RegisterViewController: UIViewController {
                 strongSelf.alertUserLoginError(message: "Bu e-posta adresleri için zaten bir kullanıcı hesabı var gibi görünüyor.")
                 return
             }
-            FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password,completion: { authResult, error in
+            FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
                 guard  authResult != nil, error == nil else {
                     print("Kullanıcı oluştururken hata oluştu")
                     return
                 }
                 
                 
-                DatabaseManager.shared.insertUser(with: ChatAppUser(firstName: firstname,
-                                                                    lastName: lastname,
-                                                                    emailAddress: email))
+                DatabaseManager.shared.insertUser(with: ChatAppUser(firstName: firstname,lastName: lastname,emailAddress: email))
 
-                strongSelf.navigationController?.dismiss(animated: true,completion: nil)
-            })
-            
+                
+            }
+
+            strongSelf.navigationController?.dismiss(animated: true,completion: nil)
         })
         
         

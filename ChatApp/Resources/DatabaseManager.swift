@@ -22,8 +22,8 @@ extension DatabaseManager{
     public func userExists(with email: String,
                            completion: @escaping ((Bool) -> Void)){
         
-        var safeEmail = email.replacingOccurrences(of: ".", with: "-")
-        safeEmail = safeEmail.replacingOccurrences(of: "@", with: "-")
+        var safeEmail = email.replacingOccurrences(of: ("."), with: "-")
+        safeEmail = email.replacingOccurrences(of: "@", with: "-")
         
         
         
@@ -41,8 +41,8 @@ extension DatabaseManager{
     /// Insert new user to database
     public func insertUser(with user: ChatAppUser){
         database.child(user.safeEmail).setValue([
-            "first_name":user.firstName,
-            "last_name":user.lastName
+            "first_name": user.firstName,
+            "last_name": user.lastName
      
         ])
     }

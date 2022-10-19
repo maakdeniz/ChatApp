@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B24209D2900374A00B6C706 /* DatabaseManager2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B24209C2900374A00B6C706 /* DatabaseManager2.swift */; };
 		2B26956528FF1E6600EEF727 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B26956428FF1E6600EEF727 /* GoogleService-Info.plist */; };
 		2B26956728FF2D6E00EEF727 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B26956628FF2D6E00EEF727 /* DatabaseManager.swift */; };
 		2B5DB0A028F8A62E0019EA29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5DB09F28F8A62E0019EA29 /* AppDelegate.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B24209C2900374A00B6C706 /* DatabaseManager2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager2.swift; sourceTree = "<group>"; };
 		2B26956428FF1E6600EEF727 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2B26956628FF2D6E00EEF727 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		2B5DB09C28F8A62E0019EA29 /* ChatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,6 +137,7 @@
 				2B5DB0A128F8A62E0019EA29 /* SceneDelegate.swift */,
 				2B606B2628F9F2A000605148 /* Extensions.swift */,
 				2B26956628FF2D6E00EEF727 /* DatabaseManager.swift */,
+				2B24209C2900374A00B6C706 /* DatabaseManager2.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				2B606B1A28F9E82700605148 /* LoginViewController.swift in Sources */,
 				2B26956728FF2D6E00EEF727 /* DatabaseManager.swift in Sources */,
 				2B606B1C28F9E85C00605148 /* RegisterViewController.swift in Sources */,
+				2B24209D2900374A00B6C706 /* DatabaseManager2.swift in Sources */,
 				2B606B2228F9E8AF00605148 /* NewConversationViewController.swift in Sources */,
 				2B5DB0A428F8A62E0019EA29 /* ConversationsViewController.swift in Sources */,
 				2B606B2028F9E89700605148 /* VideoPlayerViewController.swift in Sources */,
