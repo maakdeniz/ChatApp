@@ -11,8 +11,8 @@ class ConversationsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
-        //DatabaseManager2.shared.test()
+        
+        
         
     }
     override func viewDidAppear(_ animated: Bool) {
