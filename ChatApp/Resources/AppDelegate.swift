@@ -9,6 +9,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import FBSDKCoreKit
+import FBSDKLoginKit
 
 // AppDelegate.swift
 
