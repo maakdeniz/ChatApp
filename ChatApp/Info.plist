@@ -2,10 +2,47 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSCameraUsageDescription</key>
-	<string>Lütfen profil fotografını cekmesine izin verin</string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Lütfen galeriye erismesine izin verin</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb1310794449734364</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>819520844754-54u1b95tgg6ihf8k89mpj9b1r29co8mg.apps.googleusercontent.com</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>1310794449734364</string>
+	<key>FacebookClientToken</key>
+	<string>1b2ab29f880975244d9271473cf47f78</string>
+	<key>FacebookDisplayName</key>
+	<string>My ChatApp</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fbapi20130214</string>
+		<string>fbapi20130410</string>
+		<string>fbapi20130702</string>
+		<string>fbapi20131010</string>
+		<string>fbapi20131219</string>
+		<string>fbapi20140410</string>
+		<string>fbapi20140116</string>
+		<string>fbapi20150313</string>
+		<string>fbapi20150629</string>
+		<string>fbapi20160328</string>
+		<string>fbauth</string>
+		<string>fb-messenger-share-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -25,44 +62,5 @@
 			</array>
 		</dict>
 	</dict>
-    
-    <key>CFBundleURLTypes</key>
-    <array>
-      <dict>
-      <key>CFBundleURLSchemes</key>
-      <array>
-        <string>fb1310794449734364</string>
-      </array>
-      </dict>
-    </array>
-    <key>FacebookAppID</key>
-    <string>1310794449734364</string>
-    <key>FacebookClientToken</key>
-    <string>1b2ab29f880975244d9271473cf47f78</string>
-    <key>FacebookDisplayName</key>
-    <string>My ChatApp</string>
-    
-
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-      
-      
-      <string>fbapi</string>
-          <string>fbapi20130214</string>
-          <string>fbapi20130410</string>
-          <string>fbapi20130702</string>
-          <string>fbapi20131010</string>
-          <string>fbapi20131219</string>
-          <string>fbapi20140410</string>
-          <string>fbapi20140116</string>
-          <string>fbapi20150313</string>
-          <string>fbapi20150629</string>
-          <string>fbapi20160328</string>
-          <string>fbauth</string>
-          <string>fb-messenger-share-api</string>
-          <string>fbauth2</string>
-          <string>fbshareextension</string>
-    </array>
-    
 </dict>
 </plist>
