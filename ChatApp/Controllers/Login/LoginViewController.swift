@@ -29,7 +29,7 @@ final class LoginViewController: UIViewController {
         field.layer.cornerRadius = 12
         field.layer.borderWidth = 1
         field.layer.borderColor = UIColor.lightGray.cgColor
-        field.placeholder = "Email Address..."
+        field.placeholder = "Email Adres..."
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 0))
         field.leftViewMode = .always
         field.backgroundColor = .secondarySystemBackground
@@ -44,7 +44,7 @@ final class LoginViewController: UIViewController {
         field.layer.cornerRadius = 12
         field.layer.borderWidth = 1
         field.layer.borderColor = UIColor.lightGray.cgColor
-        field.placeholder = "Password..."
+        field.placeholder = "Şifre..."
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 0))
         field.leftViewMode = .always
         field.backgroundColor = .secondarySystemBackground
@@ -54,7 +54,7 @@ final class LoginViewController: UIViewController {
 
     private let loginButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Log In", for: .normal)
+        button.setTitle("Giriş Yap", for: .normal)
         button.backgroundColor = .link
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 12
@@ -65,7 +65,7 @@ final class LoginViewController: UIViewController {
 
     private let facebookLoginButton: FBLoginButton = {
         let button = FBLoginButton()
-        button.permissions = ["email,public_profile"]
+        button.permissions = ["public_profile,email"]
         return button
     }()
 

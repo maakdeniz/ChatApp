@@ -1,9 +1,9 @@
 //
 //  NewConversationCell.swift
-//  Messenger
+//  ChatApp
 //
-//  Created by Afraz Siddiqui on 6/15/20.
-//  Copyright © 2020 ASN GROUP LLC. All rights reserved.
+//  Created by Mehmet Akdenizon 6/15/20.
+//  
 //
 
 import Foundation

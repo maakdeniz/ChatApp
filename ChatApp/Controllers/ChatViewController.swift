@@ -5,7 +5,7 @@ import SDWebImage
 import AVFoundation
 import AVKit
 import CoreLocation
-
+import UniformTypeIdentifiers
 
 final class ChatViewController: MessagesViewController {
 
@@ -71,29 +71,53 @@ final class ChatViewController: MessagesViewController {
     }
 
     private func presentInputActionSheet() {
-        let actionSheet = UIAlertController(title: "Attach Media",
-                                            message: "What would you like to attach?",
+        let actionSheet = UIAlertController(title: "Ataç Media",
+                                            message: "Ne göndermek istersin",
                                             preferredStyle: .actionSheet)
-        actionSheet.addAction(UIAlertAction(title: "Photo", style: .default, handler: { [weak self] _ in
+        actionSheet.addAction(UIAlertAction(title: "Fotoğraf", style: .default, handler: { [weak self] _ in
             self?.presentPhotoInputActionsheet()
         }))
         actionSheet.addAction(UIAlertAction(title: "Video", style: .default, handler: { [weak self]  _ in
             self?.presentVideoInputActionsheet()
         }))
-        actionSheet.addAction(UIAlertAction(title: "Audio", style: .default, handler: {  _ in
+        actionSheet.addAction(UIAlertAction(title: "Ses", style: .default, handler: {  _ in
 
         }))
-        actionSheet.addAction(UIAlertAction(title: "Location", style: .default, handler: { [weak self]  _ in
+        actionSheet.addAction(UIAlertAction(title: "Lokasyon", style: .default, handler: { [weak self]  _ in
             self?.presentLocationPicker()
         }))
-        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        actionSheet.addAction(UIAlertAction(title: "Dosya", style: .default, handler: { [weak self]  _ in
+            self?.presentFileInputActionsheet()
+        }))
+        actionSheet.addAction(UIAlertAction(title: "İptal", style: .cancel, handler: nil))
+
+        present(actionSheet, animated: true)
+    }
+    
+    private func presentFileInputActionsheet() {
+        let actionSheet = UIAlertController(title: "Ataç Dosya",
+                                            message: "Nereden dosya eklemek istersiniz?",
+                                            preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "Dosya", style: .default, handler: { [weak self] _ in
+            
+            if #available(iOS 14.0, *) {
+                let supportedTypes: [UTType] = [UTType.pdf]
+                let pickerViewController = UIDocumentPickerViewController(forOpeningContentTypes: supportedTypes, asCopy: true)
+                pickerViewController.delegate = self as? any UIDocumentPickerDelegate
+                pickerViewController.allowsMultipleSelection = false
+                pickerViewController.shouldShowFileExtensions = true
+                self?.present(pickerViewController, animated: true, completion: nil)
+            }
+        }))
+     
+        actionSheet.addAction(UIAlertAction(title: "İptal", style: .cancel, handler: nil))
 
         present(actionSheet, animated: true)
     }
 
     private func presentLocationPicker() {
         let vc = LocationPickerViewController(coordinates: nil)
-        vc.title = "Pick Location"
+        vc.title = "Yer Seç"
         vc.navigationItem.largeTitleDisplayMode = .never
         vc.completion = { [weak self] selectedCoorindates in
 
@@ -135,10 +159,10 @@ final class ChatViewController: MessagesViewController {
     }
 
     private func presentPhotoInputActionsheet() {
-        let actionSheet = UIAlertController(title: "Attach Photo",
-                                            message: "Where would you like to attach a photo from",
+        let actionSheet = UIAlertController(title: "Ataç Fotoğraf",
+                                            message: "Nereden fotoğraf eklemek istersiniz?",
                                             preferredStyle: .actionSheet)
-        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { [weak self] _ in
+        actionSheet.addAction(UIAlertAction(title: "Kamera", style: .default, handler: { [weak self] _ in
 
             let picker = UIImagePickerController()
             picker.sourceType = .camera
@@ -147,7 +171,7 @@ final class ChatViewController: MessagesViewController {
             self?.present(picker, animated: true)
 
         }))
-        actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { [weak self] _ in
+        actionSheet.addAction(UIAlertAction(title: "Fotoğraflar", style: .default, handler: { [weak self] _ in
 
             let picker = UIImagePickerController()
             picker.sourceType = .photoLibrary
@@ -156,16 +180,17 @@ final class ChatViewController: MessagesViewController {
             self?.present(picker, animated: true)
 
         }))
-        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        actionSheet.addAction(UIAlertAction(title: "İptal", style: .cancel, handler: nil))
 
         present(actionSheet, animated: true)
     }
 
+
     private func presentVideoInputActionsheet() {
-        let actionSheet = UIAlertController(title: "Attach Video",
-                                            message: "Where would you like to attach a video from?",
+        let actionSheet = UIAlertController(title: "Ataç Video",
+                                            message: "Nereden video eklemek istersin?",
                                             preferredStyle: .actionSheet)
-        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { [weak self] _ in
+        actionSheet.addAction(UIAlertAction(title: "Kamera", style: .default, handler: { [weak self] _ in
 
             let picker = UIImagePickerController()
             picker.sourceType = .camera
@@ -176,7 +201,7 @@ final class ChatViewController: MessagesViewController {
             self?.present(picker, animated: true)
 
         }))
-        actionSheet.addAction(UIAlertAction(title: "Library", style: .default, handler: { [weak self] _ in
+        actionSheet.addAction(UIAlertAction(title: "Fotoğraflar", style: .default, handler: { [weak self] _ in
 
             let picker = UIImagePickerController()
             picker.sourceType = .photoLibrary
@@ -187,7 +212,7 @@ final class ChatViewController: MessagesViewController {
             self?.present(picker, animated: true)
 
         }))
-        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        actionSheet.addAction(UIAlertAction(title: "İptal", style: .cancel, handler: nil))
 
         present(actionSheet, animated: true)
     }
@@ -226,7 +251,7 @@ final class ChatViewController: MessagesViewController {
 
 }
 
-extension ChatViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension ChatViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIDocumentPickerDelegate {
 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
@@ -287,7 +312,7 @@ extension ChatViewController: UIImagePickerControllerDelegate, UINavigationContr
             })
         }
         else if let videoUrl = info[.mediaURL] as? URL {
-            let fileName = "photo_message_" + messageId.replacingOccurrences(of: " ", with: "-") + ".mov"
+            let fileName = "video_message_" + messageId.replacingOccurrences(of: " ", with: "-") + ".mov"
 
             // Upload Video
             StorageManager.shared.uploadMessageVideo(with: videoUrl, fileName: fileName, completion: { [weak self] result in
@@ -322,6 +347,51 @@ extension ChatViewController: UIImagePickerControllerDelegate, UINavigationContr
                         }
                         else {
                             print("failed to send photo message")
+                        }
+
+                    })
+
+                case .failure(let error):
+                    print("message photo upload error: \(error)")
+                }
+            })
+        }
+        else if let fileUrl = info[.mediaURL] as? URL {
+            let fileName = "file_message_" + messageId.replacingOccurrences(of: " ", with: "-") + ".pdf"
+
+            // Upload File
+            StorageManager.shared.uploadMessageVideo(with: fileUrl, fileName: fileName, completion: { [weak self] result in
+                guard let strongSelf = self else {
+                    return
+                }
+
+                switch result {
+                case .success(let urlString):
+                    // Ready to send message
+                    print("Uploaded Message File: \(urlString)")
+
+                    guard let url = URL(string: urlString),
+                        let placeholder = UIImage(systemName: "plus") else {
+                            return
+                    }
+
+                    let media = Media(url: url,
+                                      image: nil,
+                                      placeholderImage: placeholder,
+                                      size: .zero)
+
+                    let message = Message(sender: selfSender,
+                                          messageId: messageId,
+                                          sentDate: Date(),
+                                          kind: .photo(media))
+
+                    DatabaseManager.shared.sendMessage(to: conversationId, otherUserEmail: strongSelf.otherUserEmail, name: name, newMessage: message, completion: { success in
+
+                        if success {
+                            print("sent file message")
+                        }
+                        else {
+                            print("failed to send file message")
                         }
 
                     })

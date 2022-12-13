@@ -1,9 +1,9 @@
 //
 //  ConversationTableViewCell.swift
-//  Messenger
+//  ChatApp
 //
-//  Created by Afraz Siddiqui on 6/13/20.
-//  Copyright © 2020 ASN GROUP LLC. All rights reserved.
+//  Created by Mehmet Akdeniz on 6/13/20.
+//
 //
 
 import UIKit

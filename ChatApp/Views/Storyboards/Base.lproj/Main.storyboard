@@ -1,51 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="y6c-9Q-FeS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="y6c-9Q-FeS">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Chats-->
+        <!--Mesajlar-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ConversationsViewController" customModule="Messenger" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ConversationsViewController" customModule="ChatApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Chats" id="iN2-55-eUe"/>
+                    <navigationItem key="navigationItem" title="Mesajlar" id="iN2-55-eUe"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1787" y="1294"/>
         </scene>
-        <!--Profile-->
+        <!--Profil-->
         <scene sceneID="yOj-aV-bSS">
             <objects>
-                <viewController id="OP5-dt-59I" customClass="ProfileViewController" customModule="Messenger" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="OP5-dt-59I" customClass="ProfileViewController" customModule="ChatApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TGW-c9-r7l">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hKz-pN-62k">
-                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <rect key="frame" x="0.0" y="144" width="414" height="669"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="h3b-9E-UUE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="h3b-9E-UUE" firstAttribute="trailing" secondItem="hKz-pN-62k" secondAttribute="trailing" id="QSk-qN-qBA"/>
                             <constraint firstItem="hKz-pN-62k" firstAttribute="leading" secondItem="h3b-9E-UUE" secondAttribute="leading" id="TEF-Xb-b5T"/>
                             <constraint firstItem="h3b-9E-UUE" firstAttribute="bottom" secondItem="hKz-pN-62k" secondAttribute="bottom" id="WRk-cK-zpx"/>
                             <constraint firstItem="hKz-pN-62k" firstAttribute="top" secondItem="h3b-9E-UUE" secondAttribute="top" id="z0A-h5-GeN"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="h3b-9E-UUE"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile" id="4b5-rL-VPc"/>
+                    <navigationItem key="navigationItem" title="Profil" id="4b5-rL-VPc"/>
                     <connections>
                         <outlet property="tableView" destination="hKz-pN-62k" id="nZH-f2-0RK"/>
                     </connections>
@@ -72,14 +74,14 @@
             </objects>
             <point key="canvasLocation" x="-1151" y="-103"/>
         </scene>
-        <!--Chats-->
+        <!--Mesajlar-->
         <scene sceneID="tYd-Cq-zm3">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HmR-6Z-XOQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Chats" image="message" catalog="system" id="BYU-uc-Nsa"/>
+                    <tabBarItem key="tabBarItem" title="Mesajlar" image="message" catalog="system" id="BYU-uc-Nsa"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="etJ-nL-f5P">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -91,13 +93,13 @@
             </objects>
             <point key="canvasLocation" x="-1786" y="585"/>
         </scene>
-        <!--Profile-->
+        <!--Profil-->
         <scene sceneID="2wK-bN-kFL">
             <objects>
                 <navigationController id="UIG-7E-vQ0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="person.circle" catalog="system" id="kO0-vZ-lpV"/>
+                    <tabBarItem key="tabBarItem" title="Profil" image="person.circle" catalog="system" id="kO0-vZ-lpV"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="C84-w5-D7B">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -110,7 +112,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="message" catalog="system" width="128" height="113"/>
-        <image name="person.circle" catalog="system" width="128" height="121"/>
+        <image name="message" catalog="system" width="128" height="116"/>
+        <image name="person.circle" catalog="system" width="128" height="123"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

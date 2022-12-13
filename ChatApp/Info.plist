@@ -2,6 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSDocumentsFolderUsageDescription</key>
+	<string>Dosya paylaşmaya izin verin</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Lütfen profiliniz için bir fotoğraf seçmek üzere erişime izin verin.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Sesli ve görüntülü mesaj göndermek için lütfen erişime izin verin.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Lütfen profil resmi çekmek için erişime izin verin</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>

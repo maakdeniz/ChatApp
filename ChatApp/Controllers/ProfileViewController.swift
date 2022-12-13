@@ -21,7 +21,7 @@ final class ProfileViewController: UIViewController {
         data.append(ProfileViewModel(viewModelType: .info,
                                      title: "Email: \(UserDefaults.standard.value(forKey:"email") as? String ?? "No Email")",
                                      handler: nil))
-        data.append(ProfileViewModel(viewModelType: .logout, title: "Log Out", handler: { [weak self] in
+        data.append(ProfileViewModel(viewModelType: .logout, title: "Çıkış Yap", handler: { [weak self] in
 
             guard let strongSelf = self else {
                 return
@@ -30,7 +30,7 @@ final class ProfileViewController: UIViewController {
             let actionSheet = UIAlertController(title: "",
                                           message: "",
                                           preferredStyle: .actionSheet)
-            actionSheet.addAction(UIAlertAction(title: "Log Out",
+            actionSheet.addAction(UIAlertAction(title: "Çıkış Yap",
                                           style: .destructive,
                                           handler: { [weak self] _ in
 
@@ -61,7 +61,7 @@ final class ProfileViewController: UIViewController {
 
             }))
 
-            actionSheet.addAction(UIAlertAction(title: "Cancel",
+            actionSheet.addAction(UIAlertAction(title: "İptal",
                                                 style: .cancel,
                                                 handler: nil))
 
